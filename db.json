@@ -1,0 +1,26 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "test@yopmail.com",
+      "username": "test",
+      "password": "Test@123"
+    },
+    {
+      "id": 2,
+      "email": "michael@gmail.com",
+      "username": "michael",
+      "password": "michaelA@wwwA1"
+    }
+  ],
+  "events": [
+    {
+      "id": 12,
+      "name": "typicode"
+    },
+    {
+      "id": 13,
+      "name": "typicode"
+    }
+  ]
+}

@@ -1,6 +1,8 @@
 import React from "react";
-import { Button, Space, Table, Tag } from "antd";
+import { Button, Space, Table, Tag, Typography } from "antd";
 import moment from "moment";
+
+const { Text } = Typography;
 
 const TableComponent = ({ data = [], openEditModal, handleDeleteEvent }) => {
   const columns = [
@@ -55,6 +57,24 @@ const TableComponent = ({ data = [], openEditModal, handleDeleteEvent }) => {
       columns={columns}
       dataSource={data}
       pagination={false}
+      summary={(pageData) => {
+        let totalPrice = 0;
+        pageData.forEach(({ price }) => {
+          totalPrice += price;
+        });
+        return (
+          <>
+            <Table.Summary.Row>
+              <Table.Summary.Cell colSpan={3} index={0}>
+                Total
+              </Table.Summary.Cell>
+              <Table.Summary.Cell index={1} colSpan={3}>
+                <Text type="danger">{totalPrice}</Text>
+              </Table.Summary.Cell>
+            </Table.Summary.Row>
+          </>
+        );
+      }}
     />
   );
 };

@@ -10,6 +10,8 @@ const LoginReducer = (state = initialLoginState, action = {}) => {
       return true;
     case LOGIN.LOGIN_FAILED:
       return false;
+    case LOGIN.LOGOUT:
+      return false;
     default:
       return state;
   }

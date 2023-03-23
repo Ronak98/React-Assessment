@@ -12,3 +12,7 @@ export const loginSucceeded = (params) => ({
 export const loginFailed = (params) => ({
   type: LOGIN.LOGIN_FAILED,
 });
+
+export const logout = () => ({
+  type: LOGIN.LOGOUT,
+});

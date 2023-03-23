@@ -19,28 +19,20 @@ const vsmAuth = {
         message: "Password entry does not meet criteria.",
       },
     ],
-    confirmpassword: [
-      { required: true, message: "Confirm Password cannot be empty." },
-      ({ getFieldValue }) => ({
-        validator(rule, value) {
-          if (!value || getFieldValue("password") === value) {
-            return Promise.resolve();
-          }
-          return Promise.reject(
-            "New Password and Confirm Password does not match."
-          );
-        },
-      }),
-    ],
+    username: [{ required: true, message: "username cannot be empty." }],
   },
 };
 
 const vsmForm = {
-  successRegister: "Record created successfully",
+  success: "Event created successfully",
+  update: "Event updated successfully",
+  fail: "Please try again later",
   validation: {
     name: [{ required: true, message: "Name cannot be empty." }],
-    address: [{ required: true, message: "Address cannot be empty." }],
-    bday: [{ required: true, message: "Birth Day cannot be empty." }],
+    description: [{ required: true, message: "Description cannot be empty." }],
+    price: [{ required: true, message: "Price cannot be empty." }],
+    tag: [{ required: true, message: "Booking Type cannot be empty." }],
+    date: [{ required: true, message: "Event Date cannot be empty." }],
   },
 };
 

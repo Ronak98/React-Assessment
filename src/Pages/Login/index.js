@@ -14,10 +14,11 @@ const Login = () => {
   let history = useHistory();
 
   const handleLoginSuccessed = (user) => {
+    localStorage.setItem("user", JSON.stringify(user));
     vsmNotify.success({
       message: vsmAuth.success,
     });
-    history.push("/dashboard", { ...user });
+    history.push("/dashboard");
   };
 
   const handleLoginFailed = () => {

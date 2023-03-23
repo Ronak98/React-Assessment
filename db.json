@@ -15,12 +15,31 @@
   ],
   "events": [
     {
-      "id": 12,
-      "name": "typicode"
+      "name": "Ronak Event",
+      "description": "Test Ronak Event Ronak Event",
+      "price": 200,
+      "date": "2023-03-31T11:12:43.726Z",
+      "tag": "premium",
+      "id": 1,
+      "userId": 2
     },
     {
-      "id": 13,
-      "name": "typicode"
+      "name": "Private Pool Party",
+      "description": "Private Pool Party",
+      "price": 1000,
+      "date": "2023-03-23T12:57:56.667Z",
+      "tag": "premium",
+      "id": 2,
+      "userId": 2
+    },
+    {
+      "name": "Test Event",
+      "description": "Test Event",
+      "price": 500,
+      "date": "2023-03-28T12:00:53.189Z",
+      "tag": "normal",
+      "userId": 2,
+      "id": 3
     }
   ]
 }

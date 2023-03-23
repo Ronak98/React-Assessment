@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Space, Table, Tag } from "antd";
 import moment from "moment";
 
-const TableComponent = ({ data = [], openEditModal }) => {
+const TableComponent = ({ data = [], openEditModal, handleDeleteEvent }) => {
   const columns = [
     {
       title: "Name",
@@ -43,13 +43,20 @@ const TableComponent = ({ data = [], openEditModal }) => {
       render: (_, record) => (
         <Space size="middle">
           <Button onClick={() => openEditModal(record)}>Edit</Button>
-          <Button>Delete</Button>
+          <Button onClick={() => handleDeleteEvent(record)}>Delete</Button>
         </Space>
       ),
     },
   ];
 
-  return <Table columns={columns} dataSource={data} pagination={false} />;
+  return (
+    <Table
+      style={{ minHeight: "200px" }}
+      columns={columns}
+      dataSource={data}
+      pagination={false}
+    />
+  );
 };
 
 export default TableComponent;

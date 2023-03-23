@@ -26,6 +26,7 @@ const vsmAuth = {
 const vsmForm = {
   success: "Event created successfully",
   update: "Event updated successfully",
+  delete: "Event deleted successfully",
   fail: "Please try again later",
   validation: {
     name: [{ required: true, message: "Name cannot be empty." }],

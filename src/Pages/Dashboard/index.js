@@ -3,8 +3,9 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import TableComponent from "../../components/TableComponent";
+import { vsmForm, vsmNotify } from "../../Config/messages";
 import LoadParams from "../../models/LoadParams";
-import { loadEvent, logout } from "../../redux/actions";
+import { deleteEvent, loadEvent, logout } from "../../redux/actions";
 import AddComponent from "./components/AddComponent";
 import EditComponent from "./components/EditComponent";
 const { Header, Content } = Layout;
@@ -64,6 +65,31 @@ export function Dashboard() {
     setEditModal(false);
   };
 
+  const handleDeleteEventSuccessed = () => {
+    handleLoadEvents();
+    vsmNotify.success({
+      message: vsmForm.delete,
+    });
+  };
+
+  const handleDeleteEventFailed = () => {
+    vsmNotify.success({
+      message: vsmForm.fail,
+    });
+  };
+
+  const handleDeleteEvent = (event) => {
+    dispatch(
+      deleteEvent(
+        new LoadParams(
+          event,
+          handleDeleteEventSuccessed,
+          handleDeleteEventFailed
+        )
+      )
+    );
+  };
+
   useEffect(() => {
     handleLoadEvents();
   }, []);
@@ -90,11 +116,14 @@ export function Dashboard() {
           style={{
             margin: "24px 16px",
             padding: 24,
-            minHeight: 280,
             background: "#f5f5f5",
           }}
         >
-          <TableComponent data={loadedEvents} openEditModal={openEditModal} />
+          <TableComponent
+            data={loadedEvents}
+            openEditModal={openEditModal}
+            handleDeleteEvent={handleDeleteEvent}
+          />
           <AddComponent visible={addModal} close={closeAddModal} />
           <EditComponent
             visible={editModal}

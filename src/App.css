@@ -50,3 +50,7 @@
   align-content: space-between;
   color: #ffffff;
 }
+
+.ant-table {
+  min-height: 400px;
+}

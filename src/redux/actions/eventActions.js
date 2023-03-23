@@ -41,3 +41,17 @@ export const updateEventSucceeded = () => ({
 export const updateEventFailed = () => ({
   type: EVENT.UPDATE_FAILED,
 });
+
+// DELETE
+export const deleteEvent = (params) => ({
+  type: EVENT.DELETE,
+  params,
+});
+
+export const deleteEventSucceeded = () => ({
+  type: EVENT.DELETE_SUCCEEDED,
+});
+
+export const deleteEventFailed = () => ({
+  type: EVENT.DELETE_FAILED,
+});
